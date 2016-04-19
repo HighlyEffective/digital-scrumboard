@@ -1,0 +1,277 @@
+/* CSS Document */
+
+/*----------------------------------------------------------------------------- 
+version:   	0.9 
+date:      	
+author:    	Timo Mulder
+-----------------------------------------------------------------------------*/
+
+/* 
+-----------------------------------------------------------------------------*/
+
+html { overflow-x: hidden; }
+html * { box-sizing: border-box; transition: all 0.75s ease; }
+html,
+body {
+	margin:0;
+	padding:0;
+	height:100%;
+	width: 100%;
+
+	color:#373E4A;
+	font-size: 12px;
+}
+
+#header,
+#content,
+#footer {
+	position: relative;
+}
+
+#wrapper {
+	width: 100%;
+	position:relative;
+}
+
+#wrapper,
+.flexWrapper {
+	display: table;
+	height: 100%;
+}
+
+
+.flexWrapper { /* can be removed (html & css!) if not needed */
+	position: relative;
+	margin: 0 auto;
+	width: 100%;
+	background-color: #FAFAFA;
+ }
+
+/*   --------- Header ----------   */
+
+#header {
+	border-bottom: 8px solid #03A4FF;
+}
+
+#header h1 {
+	text-align: center;
+	font-size: 18px;
+	padding: 10px 0;
+	font-weight: bold;
+	margin: 0;
+	}
+
+/*   --------- Content ----------   */
+
+#content {
+	margin:0 auto;
+}
+
+/*   --------- Footer ----------   */
+
+#footer {
+		display: table-row;
+		height: 1px;
+	}
+
+#footer .container-fluid {
+	border-top: 1px solid #dddddd;
+}
+	
+
+/*   --------- Type ----------   */
+
+a { 
+	color: ;
+	text-decoration:none;
+	}
+
+a:hover { text-decoration:underline; }	
+
+
+
+/* only use display table layout when your on something bigger then a phone (smallest breakpoint) */
+@media screen and (max-width: 767px) {
+
+	#wrapper, .flexWrapper, #footer  {
+		display: block;
+		height: auto;
+		min-height: 100%;
+	}
+	
+
+}
+
+
+
+
+/* layout scrum board */
+
+#SBHeader {
+	border-bottom: 8px solid #03A4FF;
+}
+
+#SBHeader h2 {
+	text-align: center;
+	font-weight: bold;
+	margin: 5px 0;
+	font-size: 18px;
+}
+
+.userstoryRow {
+	display: flex;
+	border-bottom: 5px solid #03A4FF;
+}
+
+.boardCol {
+	padding: 8px 15px;
+}
+
+.TODO,
+.DOING,
+.USERSTORY {
+	border-right: 5px solid #03A4FF;
+	align-items:stretch;
+	}
+
+
+/* stickies */
+
+.sticky {
+	display: inline-block;
+	position: relative;
+	vertical-align: top;
+	margin: 0.8em .5em 0.8em 0;		
+	min-width: 125px;
+	max-width: 200px;
+	min-height: 75px;
+	max-height: 100px;	
+	font-size: 1.2em;
+	word-wrap: break-word;	
+	cursor: pointer;
+
+	margin-left: -3em;
+	transition: none;
+
+}
+
+.stickyWrapper {
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	padding: 1em;
+	overflow: hidden;
+}
+
+.stickyWrapper:hover {
+	width: 200%;
+	height: 175%;
+	transition: all .4s ease;
+}
+
+.stickyWrapper.clicked {
+	z-index: 3;
+	position: fixed;
+	width: 900px;
+	height: 450px;
+	left: 50%;
+	margin-left: -450px;
+	top:50%;
+	margin-top: -225px;
+}
+
+.stickyWrapper.clicked span {
+	display: block;
+	padding-bottom:.1em;
+	margin-bottom:.1em;
+}
+
+.sticky.firstInRow { margin-left: 0; } 
+.sticky:hover {
+	z-index: 2;
+}
+
+
+.sticky.userstory .stickyWrapper {
+	background-color: #FF74C2;
+	border: 1px solid #EB4FCB;
+}
+
+.sticky.task .stickyWrapper {
+	background-color: #FFEC62;
+	border: 1px solid #E7C53D;
+}
+
+.sticky h4 {
+	font-weight: bold;
+	font-size: 14px;
+	margin-top: 0;
+}
+
+.sticky span {
+	display: none;
+}
+
+/* findings */
+#findings,
+#readyForTesting {
+	position: fixed;	
+	top: 0;
+	bottom: 0;
+	width: 100%;	
+	z-index: 1;
+	background-color: rgba(235, 235, 235, 0.95);	
+	/*overflow: hidden;*/
+}
+
+#findings .flexWrapper,
+#readyForTesting .flexWrapper {
+	background-color: transparent;
+	padding: 2em;
+	width: 100%;
+	height: 100%;
+}
+
+.openBtn {
+	font-size: 1.5em;
+	position: absolute;
+	padding: 0.3em 0.6em;
+	background-color: #EEE;
+	border: 1px solid #DBDBDB;
+	top: 0.5em;
+	opacity: 0.3;
+	cursor: pointer;
+}
+.openBtn:hover {
+	opacity: .9
+}
+
+#openReadyForTesting {
+	right: 0;
+	margin-right: -2.5em;
+}
+#openFindings {
+	left: 0;
+	margin-left: -2.5em;
+}
+
+#findings {
+	left: 100%;	
+	}
+
+#findings.open {
+	left: 30%;
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* readyForTesting */
+#readyForTesting {
+	right: 100%;
+	text-align: right;
+}
+
+#readyForTesting.open {
+	right: 30%;
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+}
